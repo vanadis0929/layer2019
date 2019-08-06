@@ -1,1 +1,22 @@
 $myColor: #f7f7f7;
+
+$baseWebfont: "Noto Sans KR",
+sans-serif;
+
+$pcFontSize: 16px;
+$mobileFontSize: $pcFontSize - 2;
+
+@mixin bgColor($color, $opacity: 1) {
+  background-color: rgba($color, $opacity);
+}
+
+
+$mq : ('mobile' : 'all and (max-width: 768px)');
+
+@mixin media($query) {
+  $conditions: ();
+
+  @media #{$query} {
+    @content;
+  }
+}
