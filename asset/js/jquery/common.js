@@ -8,5 +8,9 @@
 */
 
 $(function () {
- $('.layer-pop-btn')
+ $('.layer-pop-btn').on("click", function(){
+     console.log($(this).text());
+     $('.layer-popup').addClass('on');
+     $('.dim').css('display','block');
+ });
 });
