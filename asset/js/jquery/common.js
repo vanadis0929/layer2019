@@ -9,48 +9,58 @@
 
 $(function () {
     var DimHtml = $('<div class="dim"></div>'); // dim 생성
-    const delayTime = 5; // 시간
-    var timer = setTimeout(function(){
-
-    },delayTime*1000);
-
+    const delayTime = 5;
 
     /* 레이어팝업 열기 */
     $('.layer-pop-btn').on("click", function(){
         $('.layer-popup').addClass('on');
         $('body').append(DimHtml);
-        timer();
+        timeOut(delayTime);
+        
     });
     /* 레이어팝업 닫기 */
     $('.popup-close-btn').on("click", function(){
         $(this).parents('.layer-popup').removeClass('on');
         DimHtml.remove();
+        timeOut(0);
     });
+
     /* dim영역 닫기 */
     $(document).on("click", ".dim" , function(){
         $('.layer-popup').removeClass('on');
         $(this).remove();
+        timeOut(0);
     });
 
     /* 5초후 닫기 */
-    function timeOut(){
-
+    function timeOut(stop){
+        setTimeout(function(){
+            $('.layer-popup').removeClass('on');
+            DimHtml.remove();
+        },delayTime*1000);
     }
+});
 
 
-
-
-
-
-    /* 메서드호출 코드  */
+    /* prototype... */
     function layerPop() {
 
-        this.render(); // dim호출
+        
     };
+    
+    layerPop.prototype.create = function(){
 
+        this.render(); // dim호출
+    }
+    
     layerPop.prototype.render = function(){
         let $body = $('body');
         $body.append('<div class="dim"></div>');
     }
     
-});
+    function startApp() {
+        let app = new layerPop();
+      }
+      
+      $(startApp);
+
