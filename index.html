@@ -12,15 +12,24 @@
 </head>
 
 <body>
-
-  <button type="button">레이어 열기</button>
-  <div id="layer_01" class="layer_style style_01">
+  <button type="button" class="btn" data-open-to="layer_01">레이어 열기</button>
+  <button type="button" class="btn" data-layer-to="create" data-create-msg="생성">레이어 생성하기</button>
+  <div id="layer_1" class="layer_style style_01">
     <div class="layer_wrapper">
-      <div class="layer_header">header</div>
+      <div class="layer_header">
+        header
+        <button type="button" class="btn_close" data-btn-to="close">
+          <svg class="Icon Icon--close" role="presentation" viewBox="0 0 16 14">
+            <path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
       <div class="layer_body">레이어 1</div>
       <div class="layer_footer">footer</div>
     </div>
   </div>
+
+  <p> popup.open('layer_01');</p>
 </body>
 
 </html>

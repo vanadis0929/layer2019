@@ -8,23 +8,67 @@
 //       //닫히는데 필요한 것
 //   }
 
-$(function() {
-  var init = function() {
-    console.log("target");
+var defaults = {
+  openStyle: "normal"
+};
 
-    const popup = {
-      open: function(popid) {
-        let target = $("#layer_01");
-        target = $("#" + popid);
-        target.show();
-        console.log(target);
-      },
+var popup = {
+  open: function(popid, time) {
+    var el = $(this);
+    var target = event ? $("#" + el.data("openTo")) : $("#" + popid);
 
-      create: function(popid) {},
+    //console.log(openStyle);
+    target.addClass("opened").fadeIn(300);
 
-      close: function(popid) {}
-    };
-  };
+    //console.log(defaults);
 
-  init();
-});
+    //console.log(target);
+  },
+
+  create: function(msg) {
+    console.log("ggg");
+    var sizeCheck = $(".layer_style").length;
+
+    var target = `<div id="layer_${sizeCheck + 1}" class="layer_style style_01">
+    <div class="layer_wrapper"><div class="layer_body">${msg}</div> </div></div>`;
+    $("body").append(target);
+    popup.open(`layer_${sizeCheck + 1}`);
+  },
+
+  close: function(closeTime) {
+    var el = $(this);
+    var target = event ? el.parents(".layer_style") : $(".layer_style.opened");
+    //console.log(target);
+
+    var closeTimeOut = setTimeout(function() {
+      target.fadeOut(300);
+      console.log("gg");
+    }, closeTime);
+
+    if (closeTime) {
+      closeTimeOut;
+    }
+
+    //e.stopPropagation();
+  }
+};
+
+//var popup = $.extend({}, settings, defaults);
+
+(function($) {
+  $(document).on("click", "[data-open-to]", popup.open);
+
+  $(document).on("click", "[data-btn-to=close]", popup.close);
+
+  $(document).on("click", ".layer_style", function(e) {
+    $(this)
+      .find("[data-btn-to=close]")
+      .eq(0)
+      .trigger("click");
+    e.stopPropagation();
+  });
+
+  $(document).on("click", ".layer_wrapper", function(e) {
+    e.stopPropagation();
+  });
+})(jQuery);
