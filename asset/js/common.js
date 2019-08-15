@@ -17,7 +17,7 @@ var popup = {
     var el = $(this);
     var target = event ? $("#" + el.data("openTo")) : $("#" + popid);
 
-    //console.log(openStyle);
+    console.log(target);
     target.addClass("opened").fadeIn(300);
 
     //console.log(defaults);
@@ -28,11 +28,14 @@ var popup = {
   create: function(msg) {
     console.log("ggg");
     var sizeCheck = $(".layer_style").length;
-
-    var target = `<div id="layer_${sizeCheck + 1}" class="layer_style style_01">
+    var targetId = `layer_${sizeCheck + 1}`;
+    var target = `<div id="${targetId}" class="layer_style style_01">
     <div class="layer_wrapper"><div class="layer_body">${msg}</div> </div></div>`;
     $("body").append(target);
-    popup.open(`layer_${sizeCheck + 1}`);
+
+    popup.open(targetId);
+
+    popup.close(3000);
   },
 
   close: function(closeTime) {
