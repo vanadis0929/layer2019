@@ -7,7 +7,7 @@ body {
   font-family: $baseWebfont;
   line-height: 1.4;
 
-  @include media('mobile') {
+  @include media("mobile") {
     font-size: $mobileFontSize;
   }
 }
@@ -32,6 +32,8 @@ body {
   box-sizing: border-box;
   padding: 10%;
 
+  display: none;
+
   @include bgColor(#000, 0.7);
 }
 
@@ -48,14 +50,14 @@ body {
   flex-direction: column;
   @include bgColor(#fff);
 
-  >* {
+  > * {
     padding: 15px;
   }
 
-  .layer_header {}
+  .layer_header {
+  }
 
   .layer_body {
-
     overflow-y: auto;
     -webkit-box-flex: 1;
     -ms-flex: 1;
@@ -67,5 +69,6 @@ body {
     }
   }
 
-  .layer_footer {}
+  .layer_footer {
+  }
 }
