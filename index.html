@@ -20,13 +20,13 @@
   </head>
 
   <body>
-    <button type="button" class="btn" data-open-to="layer_01">
+    <button type="button" class="btn" data-open-to="layer_1">
       레이어 열기
     </button>
     <button
       type="button"
       class="btn"
-      onclick="popup.create('토스트 메시지 입니다. 3초 후 닫힙니다')"
+      data-create-msg="토스트 메시지 입니다. 3초 후 닫힙니다"
     >
       레이어 생성하기
     </button>
@@ -54,6 +54,6 @@
       </div>
     </div>
 
-    <p>popup.open('layer_01');</p>
+    <p>popup.open('layer_1');</p>
   </body>
 </html>

@@ -15,9 +15,22 @@ var defaults = {
 var popup = {
   open: function(popid, time) {
     var el = $(this);
-    var target = event ? $("#" + el.data("openTo")) : $("#" + popid);
 
-    console.log(target);
+    //팝업이 열리는 대상 정의
+
+    var target = null;
+    if (event && el.data("openTo")) {
+      target = $(`#${el.data("openTo")}`);
+      console.log("팝업오픈: 이벤트 감지");
+    } else {
+      console.log("팝업오픈: 메서드로 감지");
+      target = $("#" + popid);
+    }
+
+    //event ? $("#" + el.data("openTo")) : $("#" + popid);
+
+    console.log(typeof target);
+
     target.addClass("opened").fadeIn(300);
 
     //console.log(defaults);
@@ -26,15 +39,22 @@ var popup = {
   },
 
   create: function(msg) {
-    console.log("ggg");
+    var el = $(this);
     var sizeCheck = $(".layer_style").length;
-    var targetId = `layer_${sizeCheck + 1}`;
-    var target = `<div id="${targetId}" class="layer_style style_01">
-    <div class="layer_wrapper"><div class="layer_body">${msg}</div> </div></div>`;
+    var targetId = "layer_" + (sizeCheck + 1);
+
+    if (event && el.data("createMsg")) {
+      msg = el.data("createMsg");
+    }
+
+    console.log(targetId);
+
+    target = `<div id="${targetId}" class="layer_style style_01"><div class="layer_wrapper"><div class="layer_body">${msg}</div> </div></div>`;
+
     $("body").append(target);
 
+    console.log(typeof targetId);
     popup.open(targetId);
-
     popup.close(3000);
   },
 
@@ -60,6 +80,8 @@ var popup = {
 
 (function($) {
   $(document).on("click", "[data-open-to]", popup.open);
+
+  $(document).on("click", "[data-create-msg]", popup.create);
 
   $(document).on("click", "[data-btn-to=close]", popup.close);
 
