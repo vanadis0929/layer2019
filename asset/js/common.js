@@ -8,11 +8,7 @@
 //       //닫히는데 필요한 것
 //   }
 
-var defaults = {
-  openStyle: "normal"
-};
-
-var popup = {
+var settings = {
   open: function(popid, time) {
     var el = $(this);
 
@@ -76,14 +72,12 @@ var popup = {
   }
 };
 
-//var popup = $.extend({}, settings, defaults);
-
 (function($) {
-  $(document).on("click", "[data-open-to]", popup.open);
+  //$(document).on("click", "[data-open-to]", popup.open);
 
-  $(document).on("click", "[data-create-msg]", popup.create);
+  //$(document).on("click", "[data-create-msg]", popup.create);
 
-  $(document).on("click", "[data-btn-to=close]", popup.close);
+  //$(document).on("click", "[data-btn-to=close]", popup.close);
 
   $(document).on("click", ".layer_style", function(e) {
     $(this)
@@ -96,4 +90,16 @@ var popup = {
   $(document).on("click", ".layer_wrapper", function(e) {
     e.stopPropagation();
   });
+
+  var defaults = {
+    type: null
+  };
+
+  $.fn.popup = function(options) {
+    var popup = {};
+
+    popup.settings = $.extend({}, defaults, options);
+
+    console.log(popup.settings);
+  };
 })(jQuery);
