@@ -73,7 +73,11 @@ var settings = {
 };
 
 (function($) {
-  //$(document).on("click", "[data-open-to]", popup.open);
+  $(document).on("click", "[data-open-to]", function() {
+    $().popup({
+      open: `#${$(this).data("openTo")}`
+    });
+  });
 
   //$(document).on("click", "[data-create-msg]", popup.create);
 
@@ -92,13 +96,24 @@ var settings = {
   });
 
   var defaults = {
-    type: null
+    open: null,
+    openTime: 300
   };
 
   $.fn.popup = function(options) {
+    var init = function() {
+      //el = $(this);
+    };
+    init();
     var popup = {};
 
     popup.settings = $.extend({}, defaults, options);
+
+    //open 관련
+    if (popup.settings.open != null) {
+      var target = $(`${popup.settings.open}`);
+      target.addClass("opened").fadeIn(popup.settings.openTime);
+    }
 
     console.log(popup.settings);
   };
