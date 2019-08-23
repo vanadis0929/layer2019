@@ -81,7 +81,11 @@ var settings = {
 
   //$(document).on("click", "[data-create-msg]", popup.create);
 
-  //$(document).on("click", "[data-btn-to=close]", popup.close);
+  $(document).on("click", "[data-btn-to=close]", function() {
+    $().popup({
+      close: true
+    });
+  });
 
   $(document).on("click", ".layer_style", function(e) {
     $(this)
@@ -97,24 +101,66 @@ var settings = {
 
   var defaults = {
     open: null,
-    openTime: 300
+    openTime: 300,
+
+    close: false,
+
+    create: null
   };
 
   $.fn.popup = function(options) {
-    var init = function() {
-      //el = $(this);
-    };
-    init();
     var popup = {};
 
     popup.settings = $.extend({}, defaults, options);
 
     //open 관련
-    if (popup.settings.open != null) {
-      var target = $(`${popup.settings.open}`);
-      target.addClass("opened").fadeIn(popup.settings.openTime);
+    function open(popid, openTime) {
+      var el = $(this);
+      var target = null;
+
+      //console.log(event.target.dataset.openTo);
+
+      if (event && event.target.dataset.openTo) {
+        target = $(`#${event.target.dataset.openTo}`);
+        console.log("팝업오픈: 이벤트 감지");
+        console.log(target);
+      } else {
+        console.log("팝업오픈: 메서드로 감지");
+        target = $(popup.settings.open);
+        console.log(target);
+      }
+
+      target.addClass("opened").fadeIn(openTime ? openTime : 300);
     }
 
-    console.log(popup.settings);
+    if (popup.settings.open != null) {
+      open();
+    }
+
+    //close 관련
+    function close(closeTime, dimclose) {
+      var el = $(this);
+      var target = $(".layer_style.opened");
+
+      var closeTimeOut = setTimeout(function() {
+        target.fadeOut(300);
+        console.log(target);
+      }, closeTime);
+
+      if (closeTime) {
+        closeTimeOut;
+      }
+    }
+    if (popup.settings.close) {
+      close();
+    }
+
+    //create관련
+
+    if (popup.settings.create != null) {
+      create();
+    }
+
+    if (popup) console.log(popup.settings);
   };
 })(jQuery);
