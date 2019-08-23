@@ -200,47 +200,25 @@ h1 {
   padding: 30px;
   color: #fff;
   line-height: 60px;
-  font-size: 36px;
+  font-size: 28px;
   text-align: center;
   background: #f1658a;
 }
 
-.content {
-  padding: 50px 20px;
+.btn_group {
+  padding: 10px;
   text-align: center;
 }
 
-.sec {
-  padding: 30px 0;
-  border-top: 1px solid #c8c8c8;
+.txt_group {
+  margin-top: 50px;
 }
 
-.sec:first-child {
-  border-top: 0 none;
-}
-
-.sec h2 {
-  margin-bottom: 20px;
+.txt_group li {
   color: #333;
   line-height: 30px;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.btn {
-  display: inline-block;
-  margin-left: 5px;
-  padding: 0 10px;
-  height: 30px;
-  border: 0 none;
-  border-radius: 2px;
-  color: #fff;
-  background: #1f568a;
-  vertical-align: top;
-}
-
-.btn:first-child {
-  margin-left: 0;
+  font-size: 15px;
+  text-align: center;
 }
 
 .btn_pop {
@@ -298,6 +276,30 @@ h1 {
   color: #777;
   font-size: 20px;
   background: none;
+}
+
+.btn_confirm {
+  display: inline-block;
+  padding: 0 20px;
+  min-width: 40px;
+  height: 30px;
+  border: 0 none;
+  border-radius: 2px;
+  color: #fff;
+  background: #1f568a;
+  vertical-align: top;
+}
+
+.btn_cancle {
+  display: inline-block;
+  padding: 0 20px;
+  min-width: 40px;
+  height: 30px;
+  border: 0 none;
+  border-radius: 2px;
+  color: #fff;
+  background: #555;
+  vertical-align: top;
 }
 
 .dim {

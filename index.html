@@ -15,9 +15,22 @@
   <div class="wrap">
     <h1>jQuery Modal Popup</h1>
 
-    <button type="button" class="btn_pop">팝업</button>
-    <div class="popArea"></div>
-   
+    <!-- 팝업 버튼 -->
+    <div class="btn_group">
+      <button type="button" class="btn_pop btn_create">팝업생성</button>
+      <button type="button" class="btn_pop btn_open">팝업오픈</button>
+    </div>
+
+    <!-- 콘솔창 메소드 실행 -->
+    <ul class="txt_group">
+      <li>openPop();</li>
+      <li>creatPop();</li>
+      <li>creatPop({title:'팝업타이틀', content:'팝업 생성중', time: 2000 });</li>
+      <li>creatPop({footer:'cancle' });</li>
+    </ul>
+
+    <!-- 팝업 영역 -->
+    <div class="popArea"></div>   
   </div>
 </body>
 </html>
