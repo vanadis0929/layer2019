@@ -2,17 +2,18 @@
 @import "reset";
 @import "font";
 
-.layer-pop-btn {
-    position: absolute;
-    left: 50%;
-    top: 20px;
+.btn_wrap {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 620px;
+}
+.btn_poplayer {
     width: 300px;
     height: 60px;
-    transform: translate(-50%,0); 
-
 }
 
-.layer-popup { 
+.layer_wrap { 
     display: none;
     position: fixed;
     left: 50%;

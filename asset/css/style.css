@@ -186,17 +186,23 @@ img {
   src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format("woff2"), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format("woff"), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format("opentype");
 }
 
-.layer-pop-btn {
-  position: absolute;
-  left: 50%;
-  top: 20px;
-  width: 300px;
-  height: 60px;
-  -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
+.btn_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+  width: 620px;
 }
 
-.layer-popup {
+.btn_poplayer {
+  width: 300px;
+  height: 60px;
+}
+
+.layer_wrap {
   display: none;
   position: fixed;
   left: 50%;
@@ -213,11 +219,11 @@ img {
   z-index: 9999;
 }
 
-.layer-popup.on {
+.layer_wrap.on {
   display: block;
 }
 
-.layer-popup button {
+.layer_wrap button {
   position: absolute;
   left: 50%;
   bottom: 20px;
