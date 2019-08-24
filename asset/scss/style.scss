@@ -60,16 +60,9 @@ button {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 100%;
   flex: 0 0 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
   @include bgColor(#fff);
 
-  >* {
+  > * {
     padding: 15px;
   }
 
@@ -77,7 +70,6 @@ button {
     position: relative;
 
     .btn_close {
-
       position: absolute;
       top: 50%;
       right: 15px;
@@ -94,14 +86,11 @@ button {
         vertical-align: top;
       }
     }
-
   }
 
   .layer_body {
     overflow-y: auto;
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
+    max-height: 100%;
 
     border: {
       top: 1px solid #d3d3d3;
@@ -109,8 +98,6 @@ button {
     }
   }
 
-  .layer_footer {}
-
-
-
+  .layer_footer {
+  }
 }

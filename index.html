@@ -27,6 +27,8 @@
       type="button"
       class="btn"
       data-create-msg="토스트 메시지 입니다. 3초 후 닫힙니다"
+      data-auto-close="5000"
+      data-delete-popup="true"
     >
       레이어 생성하기 (3초 후 자동 닫힘)
     </button>
@@ -55,5 +57,7 @@
     </div>
 
     <p>$().popup({open: '#layer_1', openTime: 100})</p>
+    <p>$().popup({close: true})</p>
+    <p>$().popup({createMsg: '3초후에 닫힙니다.'})</p>
   </body>
 </html>

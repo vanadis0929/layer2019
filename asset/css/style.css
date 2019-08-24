@@ -243,13 +243,6 @@ button.btn:active {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 100%;
   flex: 0 0 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
   background-color: white;
 }
 
@@ -279,9 +272,7 @@ button.btn:active {
 
 .layer_wrapper .layer_body {
   overflow-y: auto;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+  max-height: 100%;
   border-top: 1px solid #d3d3d3;
   border-bottom: 1px solid #d3d3d3;
 }
