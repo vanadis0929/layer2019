@@ -56,9 +56,7 @@ function creatPop(opt1) {
     }else{
         $('.pop_wrap').show();
         $('.dim').show(); 
-    }
-
-    
+    }    
 }
 
 //팝업 오픈
